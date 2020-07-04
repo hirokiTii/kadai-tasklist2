@@ -1,8 +1,3 @@
 <h1>タスクID：<%= @task.id %>のタスク編集画面</h1>
 
-<%= form_with(model: @task, local: true) do |f| %>
-    <%= f.label :content, 'タスク内容' %>
-    <%= f.text_field :content %>
-    
-    <%= f.submit '編集する' %>
-<% end %>
+<%= render 'tasks/form', task: @task %>

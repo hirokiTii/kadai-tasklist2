@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
+    before_action :require_user_logged_in
     def index
-        @tasks = Task.all
+        @tasks = current_user.tasks
     end
     def show
         @task = Task.find(params[:id])
@@ -11,7 +12,7 @@ class TasksController < ApplicationController
     end
     
     def create
-        @task = Task.new(task_params)
+        @task = current_user.tasks.build(task_params)
         if @task.save
             flash[:success] = "正常にタスクが登録されました"
             redirect_to task_path(@task)

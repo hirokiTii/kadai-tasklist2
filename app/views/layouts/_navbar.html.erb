@@ -1,0 +1,15 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Microposts</a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <% unless logged_in? %>
+        <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
+        <% else %>
+        <li class="nav-item"><%= link_to 'Logout', logout_path, claas: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
